@@ -1,7 +1,26 @@
 aid: novocall
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/novocall.png
 name: Novocall
-description: Novocall is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Novocall was a Singapore-based callback and lead-conversion SaaS (a click-to-call and callback-scheduling
+  widget that turned website visitors into inbound phone calls and booked meetings), surfaced as a 500 Global
+  portfolio company and added to the API Evangelist network as a stub for enrichment. As of the July 2026
+  enrichment pass the company's public web presence is unreachable. The apex novocall.co has live email DNS
+  (SPF, DMARC quarantine, CAA) but no web host, www.novocall.co returns a Cloudflare 530 (origin down),
+  novocall.com is a parked/for-sale domain, and getnovocall.com refuses connections. No public API, developer
+  portal, or documentation surface could be reached, so no API artifacts were harvested; only a live
+  domain-security probe of the remaining DNS/TLS footprint was captured.
 url: https://raw.githubusercontent.com/api-evangelist/novocall/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,15 +30,30 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Callback
+- Lead Conversion
+- Click To Call
+- Sales
+- Marketing
+- SaaS
 apis: []
+x-status: unreachable
+x-status-note: Public web presence down as of 2026-07-20 probe; likely defunct.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/novocall-domain-security.yml
 - type: Website
   url: https://novocall.co
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
