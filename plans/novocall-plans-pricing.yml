@@ -1,0 +1,23 @@
+generated: '2026-08-13'
+method: probed
+source: https://www.novocall.co/pricing
+plan_count: 0
+note: >-
+  No plans could be recorded because Novocall no longer serves a pricing page. The pricing
+  URL, the marketing site root and the app host all return HTTP 530 (Cloudflare edge up,
+  origin gone) and the apex novocall.co has no A record. This is an absence caused by dead
+  infrastructure, NOT a provider that publishes enterprise "contact us" pricing — third-party
+  software directories still carry cached Novocall tier names and prices, but those are
+  secondary sources and are deliberately not recorded here as provider-published plans. No
+  `Plans` pointer is wired into apis.yml, because the provider publishes nothing.
+evidence:
+- url: https://www.novocall.co/pricing
+  status: 530
+- url: https://www.novocall.co/
+  status: 530
+- url: https://app.novocall.co/
+  status: 530
+- url: https://novocall.co/
+  status: 000
+  note: DNS NXDOMAIN — apex has no A/AAAA record
+plans: []

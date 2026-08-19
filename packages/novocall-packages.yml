@@ -1,0 +1,67 @@
+generated: '2026-08-13'
+method: searched
+source: https://wordpress.org/plugins/novocall-callback-widget/
+description: >-
+  Novocall's only discoverable first-party published package is a WordPress plugin that
+  drops the Novocall callback widget snippet onto a site. It is NOT a client SDK — it wraps
+  no API, exposes no methods, and carries no credentials; it is an embed helper. No Novocall
+  package exists on npm (registry search: 0 results), PyPI (404), Packagist (0 matches),
+  RubyGems, NuGet, crates.io or Maven Central, and there is no Novocall GitHub organization
+  (GitHub repo search returns only a third-party WordPress.org mirror and unrelated
+  projects). Because there is no SDK, NO `SDKs` pointer is wired into apis.yml — only
+  `Packages`. Currency is the finding here: the single package has never moved past 1.0.0
+  and was last published 2019-04-08, seven years before this probe and four years before
+  Novocall was absorbed by EasyStore, which corroborates the dead product infrastructure
+  recorded in well-known/novocall-well-known.yml.
+packages:
+- language: php
+  registry: wordpress.org
+  kind: wordpress-plugin
+  name: novocall-callback-widget
+  title: Novocall - Callback Widget
+  url: https://wordpress.org/plugins/novocall-callback-widget/
+  download: https://downloads.wordpress.org/plugin/novocall-callback-widget.zip
+  source: null
+  install: Install from the WordPress plugin directory (slug novocall-callback-widget)
+  official: true
+  official_evidence: >-
+    Published by the WordPress.org author account `novocall`
+    (https://profiles.wordpress.org/novocall/); plugin header Author URI is
+    https://www.novocall.co/
+  version: 1.0.0
+  published: '2019-04-08'
+  registry_metadata: https://api.wordpress.org/plugins/info/1.0/novocall-callback-widget.json
+  registry_status: 200
+  stats:
+    active_installs: 70
+    downloaded: 2993
+    added: '2018-10-08'
+    requires_wp: 3.0.1
+    tested_up_to: 4.9.31
+  note: >-
+    Still listed on WordPress.org but flagged by WordPress as untested with the last three
+    major releases. The plugin body hardcodes two Novocall hosts — https://www.novocall.co
+    and https://call.novocall.co — both of which returned HTTP 530 (Cloudflare origin down)
+    when probed on 2026-08-13, so the plugin can no longer deliver a working widget.
+registries_checked:
+- registry: npm
+  endpoint: https://registry.npmjs.org/-/v1/search?text=novocall
+  status: 200
+  result: no first-party package
+- registry: pypi
+  endpoint: https://pypi.org/pypi/novocall/json
+  status: 404
+  result: absent
+- registry: packagist
+  endpoint: https://packagist.org/search.json?q=novocall
+  status: 200
+  result: no matching package (only unrelated `novicell/*` results)
+- registry: github
+  endpoint: https://api.github.com/search/repositories?q=novocall
+  status: 200
+  result: no Novocall organization or first-party repository
+summary:
+  package_count: 1
+  official_count: 1
+  sdk_count: 0
+  newest_release: '2019-04-08'

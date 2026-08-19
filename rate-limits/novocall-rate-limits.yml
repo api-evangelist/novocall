@@ -1,0 +1,28 @@
+generated: '2026-08-13'
+method: probed
+source: live probes of the Novocall documentation and marketing surface, 2026-08-13
+limit_count: 0
+note: >-
+  No published rate limits, no rate-limit response headers, and no status code on exhaustion
+  could be recorded, because Novocall exposes no reachable API or documentation surface to
+  read them from. There is no api.* or docs.* host in DNS, /api and /developers on the
+  marketing host return HTTP 530 (Cloudflare origin down), and the help center returns HTTP
+  429 with Cloudflare error 1027 (account daily request limit reached) for every path. Nothing
+  observable, nothing documented — an honest zero. No `RateLimits` pointer is wired into
+  apis.yml.
+evidence:
+- url: https://www.novocall.co/developers
+  status: 530
+- url: https://www.novocall.co/api
+  status: 530
+- url: https://help.novocall.co/
+  status: 429
+  note: Cloudflare error code 1027 - daily request limit reached
+- url: https://api.novocall.co/
+  status: 000
+  note: DNS NXDOMAIN
+- url: https://docs.novocall.co/
+  status: 000
+  note: DNS NXDOMAIN
+limits: []
+headers: []

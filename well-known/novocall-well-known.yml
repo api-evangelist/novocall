@@ -1,0 +1,151 @@
+generated: '2026-08-13'
+method: probed
+source: live probes of every reachable Novocall host, 2026-08-13
+note: >-
+  Novocall publishes NO .well-known discovery surface, and none of the four hosts that
+  still resolve can serve one. novocall.co (apex) no longer has an A record at all;
+  www.novocall.co, app.novocall.co and call.novocall.co (the widget/dashboard host named
+  by Novocall's own WordPress plugin) all sit behind Cloudflare and return HTTP 530 —
+  Cloudflare is up, the origin is gone. help.novocall.co returns HTTP 429 with Cloudflare
+  error code 1027 (daily request limit reached on the account) for every path. IMPORTANT
+  FALSE-POSITIVE: novocall.com answers 200 for EVERY path probed, including
+  /.well-known/agent-card.json, /openapi.json and /llms.txt — it is an Afternic parked
+  domain (NS ns1/ns2.afternic.com, MX null) whose catch-all returns the same 114-byte HTML
+  lander redirect for every URL. Those 200s are NOT documents and no pointer is emitted for
+  them. Because no path on any host returned a real document, no WellKnown or SecurityTxt
+  pointer is wired into apis.yml.
+hosts:
+- host: https://novocall.co
+  resolves: false
+  note: apex has NS at Cloudflare and live Google Workspace MX, but no A/AAAA record — NXDOMAIN on lookup
+  documents: []
+- host: https://www.novocall.co
+  documents:
+  - path: /.well-known/security.txt
+    status: 530
+  - path: /.well-known/openid-configuration
+    status: 530
+  - path: /.well-known/oauth-authorization-server
+    status: 530
+  - path: /.well-known/api-catalog
+    status: 530
+  - path: /.well-known/ai-plugin.json
+    status: 530
+  - path: /.well-known/agent-card.json
+    status: 530
+  - path: /.well-known/agent.json
+    status: 530
+  - path: /openapi.json
+    status: 530
+  - path: /swagger.json
+    status: 530
+  - path: /llms.txt
+    status: 530
+- host: https://app.novocall.co
+  note: dashboard host; Cloudflare edge answers, origin down
+  documents:
+  - path: /.well-known/security.txt
+    status: 530
+  - path: /.well-known/openid-configuration
+    status: 530
+  - path: /.well-known/oauth-authorization-server
+    status: 530
+  - path: /.well-known/oauth-protected-resource
+    status: 530
+  - path: /.well-known/api-catalog
+    status: 530
+  - path: /.well-known/ai-plugin.json
+    status: 530
+  - path: /.well-known/agent-card.json
+    status: 530
+  - path: /.well-known/agent.json
+    status: 530
+  - path: /llms.txt
+    status: 530
+  - path: /openapi.json
+    status: 530
+  - path: /swagger.json
+    status: 530
+- host: https://call.novocall.co
+  note: >-
+    widget / customer dashboard host, discovered from the hardcoded link inside Novocall's
+    own WordPress plugin (display/novocall-widget-admin-page.php); Cloudflare edge answers,
+    origin down
+  documents:
+  - path: /.well-known/security.txt
+    status: 530
+  - path: /.well-known/openid-configuration
+    status: 530
+  - path: /.well-known/oauth-authorization-server
+    status: 530
+  - path: /.well-known/oauth-protected-resource
+    status: 530
+  - path: /.well-known/api-catalog
+    status: 530
+  - path: /.well-known/ai-plugin.json
+    status: 530
+  - path: /.well-known/agent-card.json
+    status: 530
+  - path: /.well-known/agent.json
+    status: 530
+  - path: /llms.txt
+    status: 530
+  - path: /openapi.json
+    status: 530
+  - path: /swagger.json
+    status: 530
+- host: https://help.novocall.co
+  note: help center; Cloudflare error 1027 (daily request limit reached) on every path
+  documents:
+  - path: /
+    status: 429
+  - path: /.well-known/security.txt
+    status: 429
+  - path: /.well-known/openid-configuration
+    status: 429
+  - path: /.well-known/api-catalog
+    status: 429
+  - path: /.well-known/agent-card.json
+    status: 429
+  - path: /llms.txt
+    status: 429
+  - path: /openapi.json
+    status: 429
+- host: https://novocall.com
+  note: >-
+    NOT a Novocall host any more — Afternic parked/for-sale domain. Every path returns 200
+    with an identical 114-byte HTML lander redirect, content-type text/html. Recorded as a
+    catch-all false positive, NOT as documents.
+  catch_all_200: true
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    kind: html-lander
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 200
+    kind: html-lander
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    kind: html-lander
+    document: false
+  - path: /.well-known/api-catalog
+    status: 200
+    kind: html-lander
+    document: false
+  - path: /openapi.json
+    status: 200
+    kind: html-lander
+    document: false
+  - path: /swagger.json
+    status: 200
+    kind: html-lander
+    document: false
+  - path: /llms.txt
+    status: 200
+    kind: html-lander
+    document: false
+summary:
+  documents_found: 0
+  pointer_emitted: false
