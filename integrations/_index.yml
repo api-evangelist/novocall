@@ -28,19 +28,6 @@
     builder: unknown (not in the directory record)
   status: not-a-workflow
   arazzo: null
-- slug: novocall-zoom-own
-  label: Zoom (own)
-  partner: zoom
-  partner_name: Zoom (own)
-  category: Zoom app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://marketplace.zoom.us/apps/ZeA8-sIyS-G-Zoc4QOdMQA
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: novocall-500-global
   label: 500 Global
   partner: 500-global
@@ -67,5 +54,31 @@
     detected_by: sweep-accelerator-portfolios.py
     detected: '2026-10-21'
     year: '2019'
+  status: not-a-workflow
+  arazzo: null
+- slug: novocall-zoom-own
+  label: Zoom (own)
+  partner: zoom
+  partner_name: Zoom (own)
+  category: Zoom app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.zoom.us/apps/ZeA8-sIyS-G-Zoc4QOdMQA
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: novocall-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: CALLING
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/novocall-200834
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
